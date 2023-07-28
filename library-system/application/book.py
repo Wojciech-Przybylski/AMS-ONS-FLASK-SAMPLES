@@ -7,16 +7,14 @@ class Book():
             for book in file:
                 eval(book)
 
-    def __init__(self, title, pages, isbn, genre, fromrepr = False, author = "Unknown", bookfile = "books.list"):
+    def __init__(self, title, pages, isbn, genre, author = "Unknown", bookfile = "books.list"):
         self.title = title
         self.pages = pages
         self.isbn = isbn
         self.genre = genre
         self.author = author
         Book.books.append(self)
-        if not fromrepr:
-            with open(bookfile, 'a') as file:
-                file.write(self.__repr__() + '\n')
+
     
     @staticmethod
     def valid_isbn(isbn):
